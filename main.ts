@@ -95,7 +95,7 @@ namespace irRemote {
     function irInit(IR_pin: DigitalPin) {
         pins.onPulsed(IR_pin, PulseValue.Low, () => {      //interrupt event
             LpulseTime = pins.pulseDuration();             //measure the pulse
-            if (8250 < LpulseTime && LpulseTime < 9250) {  //9ms
+            if (6750 < LpulseTime && LpulseTime < 11250) { //9ms
                 LpulseCounter = 0;
             }
             if (LpulseCounter < maxPulse /*&& repeatedPulse == false*/) {
@@ -105,10 +105,10 @@ namespace irRemote {
         });
         pins.onPulsed(IR_pin, PulseValue.High, () => {
             HpulseTime = pins.pulseDuration();
-            /*if (2000 < HpulseTime && HpulseTime < 2500) {  //2.25ms
+            /*if (1687 < HpulseTime && HpulseTime < 2812) {  //2.25ms
                 repeatedPulse = true;
             }*/
-            if (4250 < HpulseTime && HpulseTime < 4750) {  //4.5ms
+            if (3375 < HpulseTime && HpulseTime < 5625) {    //4.5ms
                 HpulseCounter = 0;
                 //repeatedPulse = false;
             }
@@ -131,11 +131,11 @@ namespace irRemote {
         let inverseCommand: number = 0;
         let num: number;
         //confirm start pulse
-        if (8250 < low_pulse[0] && low_pulse[0] < 9250 && HpulseCounter >= 33) {
+        if (6750 < low_pulse[0] && low_pulse[0] < 11250 && HpulseCounter >= 33) {  //9ms
             //conver the pulse into data
             for (num = 1; num < maxPulse; num++) {
-                //if (440 < low_pulse[num] && low_pulse[num] < 680) {      //0.56ms
-                if (1400 < high_pulse[num] && high_pulse[num] < 2000) {  //1.69ms = 1, 0.56ms = 0
+                //if (420 < low_pulse[num] && low_pulse[num] < 700) {      //0.56ms
+                if (1267 < high_pulse[num] && high_pulse[num] < 2112) {    //1.69ms = 1, 0.56ms = 0
                     if (1 <= num && num < 9) {    //conver the pulse into address
                         tempAddress |= 1 << (num - 1);
                     }
