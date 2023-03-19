@@ -21,8 +21,9 @@
   "IrButton.Unused_4|block": " ",
   "IrButton.Up|block": "▲",
   "irRemote.connectInfrared|block": "Connecter récepteur IR sur la pin %IR_pin",
-  "irRemote.irButton|block": "Bouton infra-rouge %button",
-  "irRemote.returnIrButton|block": "Bouton infra-rouge",
-  "irRemote|block": "télécommande infra-rouge",
-  "{id:category}IrRemote": "Télécommande infra-rouge"
+  "irRemote.irButton|block": "Bouton IR %button",
+  "irRemote.isIrButtonPressed|block": "bouton IR %button pressed",
+  "irRemote.returnIrButton|block": "Bouton IR",
+  "irRemote|block": "télécommande IR",
+  "{id:category}IrRemote": "Télécommande IR"
 }

@@ -213,4 +213,20 @@ namespace irRemote {
         basic.pause(80);      //Delay by one infrared receiving period
         return IR_R.command;
     }
+
+    /**
+     * Check if a specific IR button has been pressed.
+     * author: nicolas HILAIRE
+     * github: https://github.com/lgm42/pxt-ir-remote.git
+     * Write the date: 2023-03-19
+     */
+    //% blockId=infrared_button_check
+    //% button.fieldEditor="gridpicker"
+    //% button.fieldOptions.columns=3
+    //% button.fieldOptions.tooltips="false"
+    //% block="IR button %button pressed"
+    //% weight=98
+    export function isIrButtonPressed(button: IrButton): boolean {
+        return irRemote.returnIrButton() == irRemote.irButton(button)
+    }
 }
